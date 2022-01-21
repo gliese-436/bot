@@ -27,7 +27,7 @@ def request_QR(message):
     markup = types.InlineKeyboardMarkup()
     button_QR = types.InlineKeyboardButton(text="Отправить QR-код", callback_data='add')
     markup.add(button_QR) 
-    bot.send_message(message.chat.id, "Нажми на кнопку", reply_markup=markup)
+    bot.send_message(message.chat.id, "Вот твой QR-код", reply_markup=markup)
     
 @bot.message_handler     
 @bot.callback_query_handler(func=lambda call: True)
@@ -56,6 +56,7 @@ def start_message(message):
         keyboard.add(button_phone)
         bot.send_message(message.chat.id, "Отправь мне свой номер", reply_markup=keyboard)
     else:
+        bot.send_message(message.chat.id, "Ты уже зарегистрировался")
         request_QR(message)    
 
 bot.polling()
