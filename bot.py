@@ -5,7 +5,7 @@ import qrcode
 from PIL import Image, ImageDraw
 import re
 
-bot = telebot.TeleBot('995674544:AAFyQEr5fkXCLmjJKkC5eOQ-NrJZouVmXao')
+bot = telebot.TeleBot('your_token_here')
 
 
 @bot.message_handler(content_types=["contact"])
